@@ -1,0 +1,17 @@
+<table class="table table-bordered table-striped table-responsive" id="OrdersForAllocation">
+    <thead>
+    <tr>
+        <th class="info header" rowspan="2">  номер </th>
+        <th class="info text-center header">Адрес</th>
+    </tr>
+    </thead>
+    <tbody >
+    {% for order in orders %}
+    <tr class="orders">
+        <td class="orderId">{{order.orderId}}</td>
+
+        <td class="orderAddress"><span class="spb">Санкт-Петербург, </span>{{order.street}}, д.{{order.house}} {% if order.corp %}, копр. {{order.corp}} {% endif %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

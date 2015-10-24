@@ -1,0 +1,19 @@
+{# шаблон для неназначенных никакому курьеру заказов#}
+<div id="unassigned">
+    <div class="panel panel-default" >
+        <div class="panel-heading" id="unassignedHeader">
+            <h3 class="panel-title">Неназначенные (<span id="unassignedCount"></span>)</h3>
+        </div>
+        <div class="panel-body" id="unassignedContent">
+<ol>
+{#{% for order in orders %}
+     <li class="unassigned">
+         <span class="label label-warning orderId">{{order.orderId}}</span>
+         <span class="address">Санкт-Петербург, {{order.street}}, д.{{order.house}} {% if order.corp %}, копр. {{order.corp}} {% endif %}
+         </span>
+     </li>
+{% endfor %}#}
+</ol>
+        </div>
+    </div>
+</div>

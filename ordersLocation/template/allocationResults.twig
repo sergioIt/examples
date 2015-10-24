@@ -1,0 +1,34 @@
+{% if zones %}
+    {% for zone in zones %}
+        <div class="panel panel-default" id="zone{{ loop.index }}">
+            <div class="panel-heading allocatedHeader">
+                <h3 class="panel-title">{{ zone }} (<span class="zoneOrdersCount"></span>)</h3>
+            </div>
+            <div class="panel-body allocatedContent" >
+                <div class="ordersAllocated">
+                    <ol></ol>
+                </div>
+            </div>
+        </div>
+        {#   <div id="zone{{ loop.index }}" class="row">
+
+               <form class="form-inline frmAllocationZone" method="post" action="#" id="frmZone{{  loop.index }}">
+                   <h3>{{ zone }}
+                       &#123;&#35;{% if couriers %}
+                           <select class="form-control" name="courier">
+                               <option value="0" selected="selected">назначить</option>
+                       {% for courier in couriers %}
+                           <option value="{{ courier.id }}">{{ courier.name }} {% if courier.status ==0 %} (не активен){% endif %}</option>
+                       {% endfor %}
+                               </select>
+                       {% endif %}&#35;&#125;
+
+                   </h3>
+                   <div class="ordersAllocated"><ol></ol>
+                   </div>
+                   &#123;&#35; <button type="submit" class="btn btn-success">Создать маршрутный лист</button>
+         <div class="alert alert-warning inputErrCourier"> <h3 class="text-center">Выберите курьера</h3> </div>&#35;&#125;
+               </form>
+           </div>#}
+    {% endfor %}
+{% endif %}

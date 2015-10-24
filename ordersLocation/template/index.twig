@@ -1,0 +1,78 @@
+{#шаблон модуля распределения заказов по зонам#}
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../ext/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../ext/jquery/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="../ext/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript" src="../ext/jquery/ui/jquery-ui-1.11.2.custom/jquery-ui.js"></script>
+    <link href="../ext/jquery/ui/jquery-ui-1.11.2.custom/jquery-ui.css" rel="stylesheet">
+    <script src="../ext/jquery/jquery.tablesorter.js"></script>
+    <script src="js/ordersLocation.js"></script>
+   <link href="css/orderslocation.css" rel="stylesheet">
+</head>
+<body>
+{% include 'menu.twig' %}
+{#<div class="page-header">#}
+    <h2 class="text-center" id="top_header">Распределение заказов по курьерам</h2>
+{#</div>#}
+<div class="container-fluid">
+    {#<div id="debug" class="alert alert-success"></div>#}
+<div id="debug"></div>
+{% if orders %}
+    <div class="row" id="selection_area">
+        <div id="selectOrders" class="col-md-10">
+
+        {% include 'select_orders_for_allocation.twig' %}
+        </div>
+    </div>
+
+{#    {% if orders %}
+        {% include 'ordersTableForAllocation.twig' %}
+    {% endif %}#}
+    <div class="row" id="allocation_area">
+        <div class="col-md-4">
+           {#блок управления выбранным на карте заказом#}
+            {% include 'orderSelectedControl.twig' %}
+           {# блок c неназначенными заказами#}
+            {% include 'ordersUnassigned.twig' %}
+            {#блок с назначенными (курьерам) заказами#}
+            {% include 'ordersAssigned.twig' %}
+        </div>
+
+        <div class="col-md-6">
+            <div class="controls" style=" margin: 10px;">
+                {#<button class="btn btn-info" id="btnGetAllocation"> Расперделить по зонам (<span class="count"></span>)</button>
+#}             {#   <button class="btn btn-info" id="btnCollapseAssigned"> Схлопнуть курьеров</button>#}
+               <div id="PlacemarkAnnotation">
+                    <img alt="" src="//yastatic.net/doccenter/images/tech-ru/maps/doc/freeze/BxanwlFylaVMqC0oIg6yFiCTFRs.png" width="25" height="25"> заказ попал в зону{#, не назначен#}
+                    <img alt="" src="//yastatic.net/doccenter/images/tech-ru/maps/doc/freeze/XDyJ50gD5IOycCqN0iB7mdvxuMU.png" width="25" height="25"> заказ не попал в зону{#, не назначен#}
+               </div>
+            </div>
+            <div id="map"> </div>
+        </div>
+
+    </div>
+
+    <div class="row" id="allocationResults">
+        <div class="col-md-5">
+            {# отступ слева, т.к слева-место для курьеров#}
+        </div>
+        <div class="col-md-5">
+            <h2 class="text-center">Итоги автореспределения</h2>
+            <div id="debug"></div>
+            <div id="notify"></div>
+            {% include 'allocationResults.twig' %}
+            {% include 'notAllocatedResults.twig' %}
+
+        </div>
+    </div>
+    {% else %}
+
+        <div id="debug" class="alert alert-warning">нет заказов</div>
+    {% endif %}
+
+  </div>
+</body>
+</html>

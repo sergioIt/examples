@@ -1,0 +1,112 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+/*.sdsd
+{
+    color: rgba(116, 119, 207, 0.75);
+}*/
+
+#select_orders_for_allocation_table .order_created
+{
+    font-size: 12px;
+}
+#select_orders_for_allocation_table .order_address
+{
+    font-size: 12px;
+}
+
+#map
+{
+    width: 1000px;
+    height: 800px;
+}
+#orderControl
+{
+    background-color: #dddba0;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.courierHeader
+{
+    cursor: pointer;
+}
+#unassignedHeader
+{
+    cursor: pointer;
+}
+#unassignedContent .comments
+{
+    display: none;
+}
+.allocatedHeader
+{
+    cursor: pointer;
+}
+span.unallocatedLabel
+{
+    cursor: pointer;
+}
+/*цвета заголловков блоков курьеров*/
+/*метки на карти должны примерно совпадать с этим цветами*/
+.courierHeader.color1
+{
+    background-color: #ffe071;
+}
+.courierHeader.color2
+{
+    background-color: #ba8238;
+}
+.courierHeader.color3
+{
+    background-color: #d2525b;
+}
+.courierHeader.color4
+{
+    background-color: #6278cb;
+}
+.courierHeader.color5
+{
+    background-color: #6fba87;
+}
+.courierHeader.color6
+{
+    background-color: #ae61ba;
+}
+
+.optionCourier1
+{
+    background-color: #ffe071;
+}
+.optionCourier2
+{
+    background-color: #ba7673;
+}
+.optionCourier3
+{
+    background-color: #b973ba;
+}
+.optionCourier4
+{
+    background-color: #9793ba;
+}
+.optionCourier5
+{
+    background-color: #7ab0ba;
+}
+.optionCourier6
+{
+    background-color: #7dba84;
+}
+.optionCourier
+{
+   /* color: #ffffff;*/
+}
+#select_orders_for_allocation_table .comments
+{
+    font-size: 14px;
+}
+.cursor_pointer
+{
+    cursor: pointer;
+}

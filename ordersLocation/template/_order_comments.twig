@@ -1,0 +1,27 @@
+{#шаблон для сборки разных камментариев в одно поле таблицы#}
+            {% if order.customer_comment %}
+                <b> Покупатель:</b>
+                {{ order.customer_comment }}
+                <br>
+            {% endif %}
+            {% if order.manager_comment %}
+                <b> Оператор:</b>
+                {{ order.manager_comment }}
+                <br>
+            {% endif %}
+            {% if order.stock_comment %}
+                <b> Склад:</b>
+                {{ order.stock_comment }}
+                <br>
+            {% endif %}
+            {% if order.delivery_comment %}
+                <b> Курьер:</b>
+                {{ order.delivery_comment }}
+                <br>
+            {% endif %}
+
+{% if order.delivery_fail_reason %}
+    <b> Причина недоставки:</b>
+    {{ order.delivery_fail_reason }}
+    <br>
+{% endif %}

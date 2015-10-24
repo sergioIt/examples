@@ -1,0 +1,32 @@
+{#блок с назначенными (курьерам) заказами#}
+<div id="couriers">
+    {% for courier in couriers %}
+        {#    <option value="{{ courier.id }}">{{ courier.name }} {% if courier.status ==0 %} (не активен){% endif %}</option>#}
+        <div class="panel panel-default" id="courier{{ loop.index }}">
+            <div class="panel-heading courierHeader color{{ loop.index }}">
+                <h3 class="panel-title">{{ courier.name }} {% if courier.status == 0 %} (не активен) {% endif %}, заказов: <span class="courierOrdersCount"></span></h3>
+            </div>
+            <div class="panel-body courierOrdersContent">
+                <form class="form-inline frmSetZoneToCourier">
+                    <select class="form-control selectZone" name="courier">
+                        <option value="0">выбрать зону</option>
+                        {% for zone in zones %}
+                            <option value="{{loop.index }}">{{ zone}}</option>
+                        {% endfor %}
+                    </select>
+                    {#<div class="form-group">#}
+                    <button class="btn btn-success btnSetZoneToCourier" type="button" data-id="{{ loop.index }}">назначить заказы из зоны</button>
+                    {#</div>#}
+                </form>
+                <div class="courierOrders">
+                <ol></ol>
+                </div>
+                <form class="form-inline frmCreateList">
+                    <input class="inputCourierId" type="hidden" name="courierId" value="{{ courier.id }}">
+                    <button type="submit" class="btn btn-success">создать лист доставки</button>
+                </form>
+
+            </div>
+        </div>
+    {% endfor %}
+</div>

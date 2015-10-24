@@ -1,0 +1,12 @@
+{#обработка меток статуса заказа (в новой системе)#}
+{% if order.status == 0 %} <span class="label label-success">новый</span> {% endif %}
+                {% if order.status == 1 %} <span class="label label-success">проверен</span> {% endif %}
+                {% if order.status == 2 %} <span class="label label-success">оформлен</span> {% endif %}
+                {% if order.status == 3 %} <span class="label label-primary">распределён</span> {% endif %}
+                {% if order.status == 4 %} <span class="label label-primary">собран</span> {% endif %}
+                {% if order.status == 5 %} <span class="label label-danger">отменён</span> {% endif %}
+                {% if order.status == 6 %} <span class="label label-primary">в доставке</span> {% endif %}
+                {% if order.status == 7 %} <span class="label label-success">выполнен</span> {% endif %}
+                {% if order.status == 8 %} <span class="label label-warning">частичная доставка</span> {% endif %}
+                {% if order.status == 9 %} <span class="label label-danger">не доставлен</span> {% endif %}
+                {% if order.status == 10 %} <span class="label label-danger">не собран</span> {% endif %}

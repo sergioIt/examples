@@ -1,0 +1,78 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ modules.index }}">123Pets Admin</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+{#
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+#}
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Модули<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{modules.ordersCall}}">Call-центр</a></li>
+                        <li><a href="{{modules.ordersLocation}}">Распеределение заказов</a></li>
+                        <li><a href="{{ modules.ordersDelivery}}">Диспетчер доставок</a></li>
+                        <li><a href="{{ modules.ordersAssembly}}">Сборка заказов</a></li>
+                        <li><a href="#">проблемные заказы</a></li>
+                        <li class="dropdown-header">поиск</li>
+                        <li><a href="{{ modules.orders}}">Поиск заказов</a></li>
+                        <li><a href="{{ modules.productSearch}}">Поиск товаров</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Пользователи</li>
+                        <li><a href="{{ modules.admin_users }}">Администраторы</a></li>
+                        <li><a href="{{ modules.couriers }}">Курьеры</a></li>
+                        {#<li><a href="#">Покупатели</a></li>#}
+                        <li class="divider"></li>
+                        <li><a href="{{ modules.converter }}">Конвертер xml</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ modules.catalogExport }}">Экспорт каталога</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ modules.catalog }}">Редактор каталога</a></li>
+                        <li><a href="{{ modules.sliders }}">Слайдер</a></li>
+                        <li><a href="{{ modules.specials }}">Спецпредложения</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li><button type="button" class="btn btn-default navbar-btn"  id="btnReload"> <span class="glyphicon glyphicon-refresh"></span> Обновить</button></li>
+               <li class="allocation_buttons"><button type="button" class="btn btn-success navbar-btn" id="btn_allocate_selected_orders" disabled> распределить (<span class="count">0</span>)</button></li>
+               <li class="allocation_buttons"><button type="button" class="btn btn-success navbar-btn" id="btn_save_selected_orders" disabled> сохранить {#(<span class="count">0</span>)#}</button></li>
+               <li class="allocation_buttons"><button type="button" class="btn btn-danger navbar-btn" id="btn_reset_selected_orders" disabled> сбросить все </button></li>
+               <li class="allocation_buttons"><button type="button" class="btn btn-danger navbar-btn" id="btn_remove_saved_orders" disabled> удалить сохранённые (<span class="count">0</span>) </button></li>
+              {# <li><button class="btn btn-info navbar-btn" id="btnGetAllocation"> Расперделить по зонам (<span class="count"></span>)</button></li>
+#}
+            </ul>
+
+            <p class="navbar-text navbar_userStat" id="status_filters">
+                <input type="checkbox" class="status_filter" value="1">
+                <span class="label label-success cursor_pointer status_filer_selector" data-id="1">новый</span>
+                <input type="checkbox" class="status_filter status_filer_selector" value="6">
+                <span class="label label-primary cursor_pointer status_filer_selector" data-id="6">в доставке</span>
+                <input type="checkbox" class="status_filter" value="5">
+                <span class="label label-danger cursor_pointer status_filer_selector" data-id="5">отмена</span>
+
+            </p>
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#">{{ session.name }}</a></li>
+                <li><a href="{{modules.logout}}">Выход</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>

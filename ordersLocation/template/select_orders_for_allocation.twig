@@ -1,0 +1,59 @@
+{#список для ручного предвариельного выборка заказов, которые нужно распределить по курьерам#}
+{#это приходится делать, т.к. заказы берётся из битрикса, а там не ставятся финальные статусы доставки#}
+<h3>Выбор заказов для распределения ( последние {{ orders|length }})</h3>
+
+<table class="table table-responsive table-striped table-bordered tablesorted" id="select_orders_for_allocation_table">
+    <thead>
+    <tr class="cursor_pointer info">
+        <th> </th>
+        <th> Id </th>
+        <th> статус </th>
+        <th> статус[bx] </th>
+        <th> ред </th>
+        <th> создан </th>
+        <th> адрес </th>
+        <th> комментарий </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for order in orders %}
+    <tr data-id="{{order.orderId}}" data-status="{{ order.bx_status }}" class="order">
+        <td class="check">
+                <input type="checkbox">
+          </td>
+        <td>
+          <h4>  <span class="label label-default cursor_pointer order_id"> {{order.orderId}} </span></h4>
+        </td>
+
+        <td>
+            <h5>
+               {% include '_order_status_labels.twig' %}
+            </h5>
+        </td>
+        <td>
+            <h5>
+                {% include '_orders_bx_status_labels.twig' %}
+            </h5>
+        </td>
+        <td> <a href="{{ catalog }}/admin2/ordersCall/editOrder.php?id={{ order.orderId }}">редакт.</a></td>
+        <td class="order_created">
+            {{ order.created|date("d.m.Y H:i:s")  }}
+        </td>
+        <td class="order_address">
+            <span class="address">
+                        {% if order.area %} {{ order.area}}
+            {% else %}
+                Санкт-Петербург
+                {% endif %},
+                {% if order.district %} {{ order.district}}, {% endif %}
+                {{order.street}}, д.{{order.house}} {% if order.corp %}, корп. {{order.corp}} {% endif %} </span>
+        </td>
+        <td class="comments">
+            {% include '_order_comments.twig' %}
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>

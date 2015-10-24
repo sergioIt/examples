@@ -1,0 +1,20 @@
+{#блок управления выбранным на карте заказом#}
+<div id="orderControl">
+   <div class="text-right"><button class="btn btn-danger" id="btnCloseOrderControl">x</button></div>
+    <h3>Заказ <span id="controlOrderId"></span></h3>
+    <h4>Адрес: <span id="controlOrderAddress"></span> </h4>
+    <h4>Комментарии: <span id="controlOrderComments"></span> </h4>
+
+    <form class="form-inline" id="frmSetAddressToCourier">
+        курьер:
+        <select class="form-control selectCourier" name="courier">
+            <option value="0" selected="selected">назначить</option>
+            {% for courier in couriers %}
+                <option value="{{ loop.index }}" {% if courier.status ==0 %} disabled {% endif %} class="optionCourier optionCourier{{ courier.id }}">{{ courier.name }} </option>
+            {% endfor %}
+        </select>
+        <div class="form-group">
+            <button class="btn btn-success" type="button" id="btnSetOrderToCourier">назначить</button>
+        </div>
+    </form>
+</div>
